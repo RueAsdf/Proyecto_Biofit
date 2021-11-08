@@ -7,7 +7,7 @@ public class Administrador {
 
     public Administrador (){
         user = "diego";   // Inicializar valores por defecto
-        pass = "123";
+        pass = "321";
     }
 
     public Administrador(int id, String user, String pass) {
