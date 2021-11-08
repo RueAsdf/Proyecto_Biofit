@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
         pass = findViewById(R.id.txtPass);
         msj  = findViewById(R.id.msj);
 
+        msj.setVisibility(View.INVISIBLE);
+
     }
 
     public void LoadSession (View view){
@@ -43,14 +45,19 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case "":
                 if (usuario.equals("") && contrasena.equals("")){
+                    msj.setVisibility(View.VISIBLE);
                     msj.setText("Campos vacios, por favor llenar campos");
+
                 }
                 break;
             default:
                 if (!usuario.equals(userObj) && !contrasena.equals(passObj)){
+                    msj.setVisibility(View.VISIBLE);
                     msj.setText("Campos incorrectos");
                 }
                 break;
         }
     }
+
+
 }
