@@ -3,27 +3,35 @@ package com.example.proyecto_biofit;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.TextureView;
 import android.view.View;
+import android.widget.MediaController;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import Objetos.Insumos;
 
 public class Home_act extends AppCompatActivity {
 
+    private VideoView video;
     private Insumos in = new Insumos();
-    private TextView usuario;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        usuario = findViewById(R.id.usuario);
 
-        String us = getIntent().getStringExtra("usuario");
+        video = findViewById(R.id.vw);
+        String ruta = "android.resource://" + getPackageName() + "/" + R.raw.video;
+        Uri uri = Uri.parse(ruta);
+        video.setVideoURI(uri);
 
-        usuario.setText("bienvenido; " + us);
+        MediaController media = new MediaController(this);
+        video.setMediaController(media);
+
 
     }
 
