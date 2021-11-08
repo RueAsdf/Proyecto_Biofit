@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import Objetos.Administrador;
@@ -18,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView msj;
     private Administrador adm = new Administrador();
     private Insumos in = new Insumos();
+    private Button btn;
+    private ProgressBar pb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +32,60 @@ public class MainActivity extends AppCompatActivity {
         user = findViewById(R.id.txtUser);
         pass = findViewById(R.id.txtPass);
         msj  = findViewById(R.id.msj);
+        btn = findViewById(R.id.btn);
+        pb = findViewById(R.id.pb);
 
         msj.setVisibility(View.INVISIBLE);
+        pb.setVisibility(View.INVISIBLE);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new Task().execute();
+            }
+        });
 
     }
+
+    class Task extends AsyncTask<String, Void, String>{
+        @Override
+
+        // Define configuracion inicial de la tarea asincrona
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pb.setVisibility(View.VISIBLE);
+        }
+
+        //Realiza el proceso pesado en segundo plano o mi tarea de larga duracion
+        @Override
+        protected String doInBackground(String... strings) {
+            try {
+                for (int i = 0; i <= 10; i++){
+                    Thread.sleep(2000);
+                }
+            }
+            catch (InterruptedException e){
+                e.printStackTrace();
+            }
+
+            return null;
+
+        }
+
+        //Finaliza mi tarea asincrona y define su final
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            pb.setVisibility(View.INVISIBLE);
+            Intent i = new Intent(getBaseContext(), Home_act.class);
+            i.putExtra("usuario",user.getText().toString());
+            startActivity(i);
+        }
+    }
+
+
+
+
 
     public void LoadSession (View view){
         String userObj    = adm.getUser().toString().trim();
@@ -42,11 +97,7 @@ public class MainActivity extends AppCompatActivity {
         switch (usuario){
             case "diego" :
                 if (usuario.equals(userObj) && contrasena.equals(passObj)){
-                    Intent i = new Intent(this, Insumos_Act.class);
-
-                    Bundle bun = new Bundle();
-                    bun.putStringArray("insumos", in.getInsumons());
-                    i.putExtras(bun);
+                    Intent i = new Intent(this, Home_act.class);
 
                     startActivity(i);
                 }
