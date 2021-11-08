@@ -93,8 +93,8 @@
 
             <LinearLayout
                 android:id="@+id/linearLayout3"
-                android:layout_width="280dp"
-                android:layout_height="27dp"
+                android:layout_width="288dp"
+                android:layout_height="43dp"
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -106,21 +106,27 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/faceico" />
+                    android:onClick="Facebook"
+                    app:srcCompat="@drawable/faceico"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                 <ImageView
                     android:id="@+id/imageView4"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/youtubeico" />
+                    android:onClick="Youtube"
+                    app:srcCompat="@drawable/youtubeico"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                 <ImageView
                     android:id="@+id/imageView3"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/twicon" />
+                    android:onClick="Twitter"
+                    app:srcCompat="@drawable/twicon"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
             </LinearLayout>
 
             <TextView
