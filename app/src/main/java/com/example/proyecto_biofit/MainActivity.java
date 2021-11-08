@@ -10,12 +10,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import Objetos.Administrador;
+import Objetos.Insumos;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText user, pass;
     private TextView msj;
     private Administrador adm = new Administrador();
+    private Insumos in = new Insumos();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
             case "diego" :
                 if (usuario.equals(userObj) && contrasena.equals(passObj)){
                     Intent i = new Intent(this, Insumos_Act.class);
+
+                    Bundle bun = new Bundle();
+                    bun.putStringArray("insumos", in.getInsumons());
+                    i.putExtras(bun);
+
                     startActivity(i);
                 }
                 break;
