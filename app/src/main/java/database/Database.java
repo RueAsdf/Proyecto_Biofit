@@ -15,6 +15,8 @@ public class Database extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE clases(codigo int primary key, clase text, intensidad text)");
+        //sqLiteDatabase.execSQL("CREATE TABLE ( int primary key,)");
+
     }
     //Método para realizar actualizaciones o cambios en mi modelo
     @Override
