@@ -1,14 +1,16 @@
-package database;
+package com.example.proyecto_biofit.database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.proyecto_biofit.Clases_act;
+
 public class Database extends SQLiteOpenHelper {
     //Constructor para instanciar la base de datos
-    public Database(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    public Database(@Nullable Clases_act context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+
     }
 
     //Método para poder crear mi modelo de trabajo
