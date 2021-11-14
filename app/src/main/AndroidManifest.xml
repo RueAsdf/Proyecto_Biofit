@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto_Biofit">
         <activity
+            android:name=".clases_Act"
+            android:exported="true" />
+        <activity
             android:name=".Info_act"
             android:exported="true" />
         <activity
