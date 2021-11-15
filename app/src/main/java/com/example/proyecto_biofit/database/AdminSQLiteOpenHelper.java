@@ -13,7 +13,8 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
 
     //Método para poder crear modelo de trabajo
     @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL("CREATE TABLE clases(codigo INT PRIMARY KEY, clase TEXT, intensidad TEXT)");
 
     }
     //Método para realizar actualizaciones en el modelo

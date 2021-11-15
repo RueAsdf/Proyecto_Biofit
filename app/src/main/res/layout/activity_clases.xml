@@ -75,7 +75,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName"
+                    android:id="@+id/code"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -84,7 +84,7 @@
                     android:text="Ingrese Codigo" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName2"
+                    android:id="@+id/clase"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -93,7 +93,7 @@
                     android:text="Ingrese Clase" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName3"
+                    android:id="@+id/intensi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -117,6 +117,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#3F51B5"
+                    android:onClick="anadirClases"
                     android:text="Añadir clase"
                     app:cornerRadius="40dp" />
 
@@ -125,6 +126,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#3F51B5"
+                    android:onClick="mostrarClases"
                     android:text="Mostrar clase"
                     app:cornerRadius="40dp" />
 
@@ -133,6 +135,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#3F51B5"
+                    android:onClick="eliminarClases"
                     android:text="Eliminar clase"
                     app:cornerRadius="40dp" />
 
@@ -142,6 +145,7 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="#3F51B5"
                     android:minHeight="48dp"
+                    android:onClick="actualizarClases"
                     android:text="Actualizar clase"
                     app:cornerRadius="48dp" />
             </LinearLayout>
