@@ -51,7 +51,7 @@
                 android:layout_width="294dp"
                 android:layout_height="93dp"
                 android:layout_marginTop="20dp"
-                android:text="Biofit ofrece una completa gestion de insumos, en esta seccion, en esta seccion podra manejar los calculos y las calificaciones de los insumos en mantencion, ademas de proporcionar un valor adicional por mantencion"
+                android:text="Biofit ofrece una completa gestion de insumos, en esta seccion podra manejar los calculos y las calificaciones de los insumos en mantencion, ademas de proporcionar un valor adicional por mantencion"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.47"
                 app:layout_constraintStart_toStartOf="parent"
