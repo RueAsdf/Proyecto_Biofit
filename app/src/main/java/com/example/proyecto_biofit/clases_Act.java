@@ -65,7 +65,19 @@ public class clases_Act extends AppCompatActivity {
         }
     }
     public void eliminarClases(View view){
-
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"biofit",null,1);
+        SQLiteDatabase db = admin.getWritableDatabase();
+        String codigo = code.getText().toString();
+        if(!codigo.isEmpty()){
+            int cant=db.delete("clases","codigo="+codigo,null);
+            db.close();
+            clean();
+            if(cant==1){
+                Toast.makeText(getBaseContext(),"Eliminaste la clase: "+codigo,Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(getBaseContext(),"No existe la clase con el codigo asociado",Toast.LENGTH_SHORT).show();
+            }
+        }
     }
     public void actualizarClases(View view){
 
