@@ -80,11 +80,33 @@ public class clases_Act extends AppCompatActivity {
         }
     }
     public void actualizarClases(View view){
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"biofit",null,1);
+        SQLiteDatabase db = admin.getWritableDatabase();
+
+        String codigo = code.getText().toString();
+        String clase = clas.getText().toString();
+        String inten = intensi.getText().toString();
+
+        if(!codigo.isEmpty() && !clase.isEmpty() && !inten.isEmpty()){
+            ContentValues cont= new ContentValues();
+            cont.put("codigo",codigo);
+            cont.put("clase",clase);
+            cont.put("intensidad",inten);
+
+            db.update("clases",cont,"codigo="+codigo,null);
+            db.close();
+            clean();
+            Toast.makeText(getBaseContext(),"Actualizaste la clase de forma exitosa ",Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(getBaseContext(),"Campos vacíos",Toast.LENGTH_SHORT).show();
+        }
+
 
     }
     public void clean(){
         code.setText("");
         clas.setText("");
         intensi.setText("");
+
     }
 }
