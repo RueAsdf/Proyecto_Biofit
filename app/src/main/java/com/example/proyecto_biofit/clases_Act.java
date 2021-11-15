@@ -3,6 +3,7 @@ package com.example.proyecto_biofit;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -43,11 +44,25 @@ public class clases_Act extends AppCompatActivity {
             Toast.makeText(getBaseContext(),"Has guardado una clase",Toast.LENGTH_SHORT).show();
 
         }else{
-            Toast.makeText(getBaseContext(),"Campos vacios",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getBaseContext(),"Campos vacíos",Toast.LENGTH_SHORT).show();
         }
     }
     public void mostrarClases(View view){
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"biofit",null,1);
+        SQLiteDatabase db = admin.getWritableDatabase();
+        String codigo = code.getText().toString();
 
+        if(!codigo.isEmpty()){
+            Cursor file = db.rawQuery("SELECT clase,intensidad FROM clases WHERE codigo ="+codigo,null);
+            if(file.moveToFirst()){   //revisa si la consulta tiene valores
+               clas.setText(file.getString(0));
+               intensi.setText(file.getString(1));
+            }else{
+                Toast.makeText(getBaseContext(),"No hay clase asociada",Toast.LENGTH_SHORT).show();
+            }
+        }else{
+            Toast.makeText(getBaseContext(),"Codigo vacío",Toast.LENGTH_SHORT).show();
+        }
     }
     public void eliminarClases(View view){
 

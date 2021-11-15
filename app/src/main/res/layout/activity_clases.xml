@@ -79,27 +79,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:hint="Ingrese Codigo"
                     android:inputType="textPersonName"
-                    android:minHeight="48dp"
-                    android:text="Ingrese Codigo" />
+                    android:minHeight="48dp" />
 
                 <EditText
                     android:id="@+id/clase"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:hint="Ingrese Clase"
                     android:inputType="textPersonName"
-                    android:minHeight="48dp"
-                    android:text="Ingrese Clase" />
+                    android:minHeight="48dp" />
 
                 <EditText
                     android:id="@+id/intensi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:hint="Ingrese Intensidad"
                     android:inputType="textPersonName"
-                    android:minHeight="48dp"
-                    android:text="Ingrese Intensidad" />
+                    android:minHeight="48dp" />
             </LinearLayout>
 
             <LinearLayout
